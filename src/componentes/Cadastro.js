@@ -12,11 +12,31 @@ const Cadastro = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const payload = {
+      name: nome,
+      email: email,
+      confirm_email: confirmEmail,
+      password: senha,
+    }
+
+    localStorage.setItem("Dados", JSON.stringify(payload));
+
+    setNome("");
+    setEmail("");
+    setConfirmEmail("");
+    setSenha("");
   };
+
   const [personagem, setPersonagem] = useState(1);
 
   const proximoPersonagem =()=>{
-    setPersonagem(personagem+1)};
+
+    if(personagem === 494){
+      setPersonagem(1)
+    }
+    else{
+      setPersonagem(personagem+1)};
+    }
 
     useEffect(() => {
       
@@ -29,7 +49,7 @@ const Cadastro = () => {
     }).catch(()=>{
       console.error('ERRROOOOOOOOO')
     })
-  })
+  }, [personagem])
   
   return (
     <div className="Cadastro">
