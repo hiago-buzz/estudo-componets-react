@@ -9,6 +9,10 @@ const Navbar = () => {
     setMenuAtivo(!menuAtivo);
   };
 
+  const fecharMenu = ()=>{
+    setMenuAtivo(false)
+  }
+
   return (
     <div className="Navbar">
       <nav>
@@ -19,10 +23,10 @@ const Navbar = () => {
         </div>
       </nav>
       <section className={`menu ${menuAtivo ? "ativo" : ""}`}>
-        <Link to="/">Home</Link>
-        <Link to="/produtos">Produtos</Link>
-        <Link to="/cadastro">Cadastro</Link>
-        <Link to="/carrinho">Carrinho</Link>
+        <Link onClick={fecharMenu} to="/">Home</Link>
+        <Link onClick={fecharMenu} to="/produtos">Produtos</Link>
+        <Link onClick={fecharMenu} to="/cadastro">Cadastro</Link>
+        <Link onClick={fecharMenu} to="/carrinho">Carrinho</Link>
       </section>
     </div>
   );
